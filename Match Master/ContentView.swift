@@ -8,11 +8,13 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"]
+    @State var emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"]
+    
     @State var emojiCount = 24
     
     var body: some View {
         VStack {
+            Text("Memorize!").font(.largeTitle).foregroundColor(.black)
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 65))]) {
                     ForEach(emojis[0..<emojiCount], id: \.self) { emoji in
@@ -22,37 +24,85 @@ struct ContentView: View {
             }
             .foregroundColor(.red)
             Spacer()
-            HStack {
-                remove
-                Spacer()
-                add
-            }
-            .padding(.horizontal)
-            .font(.largeTitle)
+            themeSelection
         }
         .padding(.horizontal)
     }
     
-    var remove: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
+    var themeSelection: some View {
+        /*HStack {
+            Button {
+                emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"] // 24 cards so far
+                emojis = emojis.shuffled()
+                emojiCount = 24
+            } label: {
+                VStack {
+                    Image(systemName: "car.fill").font(.largeTitle)
+                    Text("Vehicles").font(.subheadline)
+                }
             }
-        } label: {
-            Image(systemName: "minus.circle")
-        }
-    }
-    
-    var add: some View {
-        Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
+            Spacer()
+            Button {
+                emojis = ["🐿", "🦬", "🐄", "🐕", "🦔", "🐐", "🐢", "🐅", "🦘", "🦛"] // 10 cards so far
+                emojis = emojis.shuffled()
+                emojiCount = 10
+            } label: {
+                VStack {
+                    Image(systemName: "tortoise.fill").font(.largeTitle)
+                    Text("Animals").font(.subheadline)
+                }
             }
-        } label: {
-            Image(systemName: "plus.circle")
-        }
+            Spacer()
+            Button {
+                emojis = ["☁️", "☀️", "🌤", "⛅️", "🌧", "🌨", "🌩", "❄️", "🌈",] // 9 cards so far
+                emojis = emojis.shuffled()
+                emojiCount = 9
+            } label: {
+                VStack {
+                    Image(systemName: "cloud.drizzle.fill").font(.largeTitle)
+                    Text("Weather").font(.subheadline)
+                }
+            }
+        }.padding(.horizontal, 30) */
+        
+        HStack {
+            Button {
+                emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"] // 24 cards so far
+                emojis = emojis.shuffled()
+                emojiCount = 24
+            } label: {
+                VStack {
+                    Image(systemName: "car.fill").font(.largeTitle)
+                    Text("Vehicles").font(.subheadline)
+                }
+            }
+            Spacer()
+            Button {
+                emojis = ["🐿", "🦬", "🐄", "🐕", "🦔", "🐐", "🐢", "🐅", "🦘", "🦛"] // 10 cards so far
+                emojis = emojis.shuffled()
+                emojiCount = 10
+            } label: {
+                VStack {
+                    Image(systemName: "tortoise.fill").font(.largeTitle)
+                    Text("Animals").font(.subheadline)
+                }
+            }
+            Spacer()
+            Button {
+                emojis = ["☁️", "☀️", "🌤", "⛅️", "🌧", "🌨", "🌩", "❄️", "🌈",] // 9 cards so far
+                emojis = emojis.shuffled()
+                emojiCount = 9
+            } label: {
+                VStack {
+                    Image(systemName: "cloud.drizzle.fill").font(.largeTitle)
+                    Text("Weather").font(.subheadline)
+                }
+            }
+        }.padding(.horizontal, 30)
     }
 }
+
+
 
 struct CardView: View {
     var content: String
@@ -107,7 +157,9 @@ struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
             .preferredColorScheme(.dark)
+.previewInterfaceOrientation(.portrait)
         ContentView()
             .preferredColorScheme(.light)
+.previewInterfaceOrientation(.portrait)
     }
 }
