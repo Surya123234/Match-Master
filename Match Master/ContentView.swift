@@ -23,48 +23,13 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.red)
-            Spacer()
+            //Spacer()
             themeSelection
         }
         .padding(.horizontal)
     }
     
     var themeSelection: some View {
-        /*HStack {
-            Button {
-                emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"] // 24 cards so far
-                emojis = emojis.shuffled()
-                emojiCount = 24
-            } label: {
-                VStack {
-                    Image(systemName: "car.fill").font(.largeTitle)
-                    Text("Vehicles").font(.subheadline)
-                }
-            }
-            Spacer()
-            Button {
-                emojis = ["🐿", "🦬", "🐄", "🐕", "🦔", "🐐", "🐢", "🐅", "🦘", "🦛"] // 10 cards so far
-                emojis = emojis.shuffled()
-                emojiCount = 10
-            } label: {
-                VStack {
-                    Image(systemName: "tortoise.fill").font(.largeTitle)
-                    Text("Animals").font(.subheadline)
-                }
-            }
-            Spacer()
-            Button {
-                emojis = ["☁️", "☀️", "🌤", "⛅️", "🌧", "🌨", "🌩", "❄️", "🌈",] // 9 cards so far
-                emojis = emojis.shuffled()
-                emojiCount = 9
-            } label: {
-                VStack {
-                    Image(systemName: "cloud.drizzle.fill").font(.largeTitle)
-                    Text("Weather").font(.subheadline)
-                }
-            }
-        }.padding(.horizontal, 30) */
-        
         HStack {
             Button {
                 emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"] // 24 cards so far
@@ -72,9 +37,14 @@ struct ContentView: View {
                 emojiCount = 24
             } label: {
                 VStack {
-                    Image(systemName: "car.fill").font(.largeTitle)
+                    Image(systemName: "car.fill")
+                        .resizable()
+                        .aspectRatio(4/3, contentMode: .fit)
                     Text("Vehicles").font(.subheadline)
                 }
+                .frame(width: 60, height: 60)
+                
+                
             }
             Spacer()
             Button {
@@ -83,9 +53,13 @@ struct ContentView: View {
                 emojiCount = 10
             } label: {
                 VStack {
-                    Image(systemName: "tortoise.fill").font(.largeTitle)
+                    Image(systemName: "tortoise.fill")
+                        .resizable()
+                        .aspectRatio(4/3, contentMode: .fit)
+                        
                     Text("Animals").font(.subheadline)
                 }
+                .frame(width: 60, height: 60)
             }
             Spacer()
             Button {
@@ -94,15 +68,17 @@ struct ContentView: View {
                 emojiCount = 9
             } label: {
                 VStack {
-                    Image(systemName: "cloud.drizzle.fill").font(.largeTitle)
+                    Image(systemName: "cloud.drizzle.fill")
+                        .resizable()
+                        .aspectRatio(4/3, contentMode: .fit)
                     Text("Weather").font(.subheadline)
                 }
+                .frame(width: 60, height: 60)
             }
-        }.padding(.horizontal, 30)
+        }
+        .padding(.horizontal, 30)
     }
 }
-
-
 
 struct CardView: View {
     var content: String
