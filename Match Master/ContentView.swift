@@ -23,7 +23,7 @@ struct ContentView: View {
                 }
             }
             .foregroundColor(.red)
-            //Spacer()
+            Spacer()
             themeSelection
         }
         .padding(.horizontal)
@@ -34,7 +34,8 @@ struct ContentView: View {
             Button {
                 emojis = ["🚀", "✈️", "🚗", "🚢", "🚕", "🚙", "🚌", "🚎", "🏎", "🚓", "🚑", "🚒", "🚐", "🛻", "🚚", "🚛", "🚜", "🦼", "🛴", "🚲", "🛵", "🏍", "🛺", "🚂"] // 24 cards so far
                 emojis = emojis.shuffled()
-                emojiCount = 24
+                emojiCount = Int.random(in: 4...24)
+                
             } label: {
                 VStack {
                     Image(systemName: "car.fill")
@@ -50,7 +51,7 @@ struct ContentView: View {
             Button {
                 emojis = ["🐿", "🦬", "🐄", "🐕", "🦔", "🐐", "🐢", "🐅", "🦘", "🦛"] // 10 cards so far
                 emojis = emojis.shuffled()
-                emojiCount = 10
+                emojiCount = Int.random(in: 4...10)
             } label: {
                 VStack {
                     Image(systemName: "tortoise.fill")
@@ -65,7 +66,7 @@ struct ContentView: View {
             Button {
                 emojis = ["☁️", "☀️", "🌤", "⛅️", "🌧", "🌨", "🌩", "❄️", "🌈",] // 9 cards so far
                 emojis = emojis.shuffled()
-                emojiCount = 9
+                emojiCount = Int.random(in: 4...9)
             } label: {
                 VStack {
                     Image(systemName: "cloud.drizzle.fill")
